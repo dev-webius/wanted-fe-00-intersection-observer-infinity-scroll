@@ -2,10 +2,6 @@ import { Grid2 } from "@mui/material";
 import { MockData } from "../types/MockData";
 import ProductItem from "./ProductItem";
 
-type Props = {
-  data: MockData[];
-};
-
 const ProductList = ({ data }: Props) => {
   return (
     <Grid2 container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
@@ -18,3 +14,7 @@ const ProductList = ({ data }: Props) => {
 };
 
 export default ProductList;
+
+type Props = {
+  data: MockData[];
+};
