@@ -714,17 +714,18 @@ const MOCK_DATA: MockData[] = [
 
 const PER_PAGE = 10;
 
+// 최초 pageNum 0으로 로드 후 1로 초기화 필요
 // 페이지는 1부터 시작함
 export const getMockData = (pageNum: number) => {
   return new Promise<MockDataResponse>((resolve) => {
     setTimeout(() => {
-      const datas: MockData[] = MOCK_DATA.slice(
+      const data: MockData[] = MOCK_DATA.slice(
         PER_PAGE * pageNum,
         PER_PAGE * (pageNum + 1)
       );
       const isEnd = PER_PAGE * (pageNum + 1) >= MOCK_DATA.length;
 
-      resolve({ datas, isEnd });
+      resolve({ data, isEnd });
     }, 1500);
   });
 };

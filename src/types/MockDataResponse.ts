@@ -1,6 +1,6 @@
 import { MockData } from "./MockData";
 
 export interface MockDataResponse {
-  datas: MockData[];
+  data: MockData[];
   isEnd: boolean;
 }
