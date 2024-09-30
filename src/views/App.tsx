@@ -10,8 +10,3 @@ const App = () => {
 };
 
 export default App;
-
-/*
-TODO 1:
-  - README 적절히 작성하기
-*/

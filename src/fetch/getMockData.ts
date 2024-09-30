@@ -711,10 +711,9 @@ const MOCK_DATA: MockData[] = [
   },
 ];
 
-const PER_PAGE = 10;
+const PER_PAGE = 6;
 
-// 최초 pageNum 0으로 로드 후 1로 초기화 필요
-// 페이지는 1부터 시작함
+// 페이지는 1부터 시작함 (최초 로드는 0)
 export const getMockData = (pageNum: number) => {
   return new Promise<Response>((resolve) => {
     setTimeout(() => {

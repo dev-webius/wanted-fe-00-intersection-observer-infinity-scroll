@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Grid2 } from "@mui/material";
+import { Grid2, Typography } from "@mui/material";
 import ProductItem from "./ProductItem";
 import LoadingSuspense from "./LoadingSuspense";
 import { getMockData } from "../fetch/getMockData";
@@ -7,6 +7,7 @@ import { createCacheResource } from "../modules/cacheResource";
 import { throwSuspense } from "../modules/throwSuspense";
 import Intersect from "./Intersect";
 import { MockData } from "../types/MockData";
+import { toComma } from "../modules/numberFormatter";
 
 const fetchResource = createCacheResource((page: number) => getMockData(page));
 
@@ -15,6 +16,8 @@ const ProductList = () => {
   const [page, setPage] = useState(0);
   const [data, setData] = useState([] as MockData[]);
   const [isEnd, setIsEnd] = useState(false);
+
+  const totalPrice = data.reduce((acc, cur) => acc + cur.price, 0);
 
   const updateData = useCallback((response: Awaited<ReturnType<typeof fetchResource.fetch>>) => {
     const { data, isEnd } = response;
@@ -36,6 +39,10 @@ const ProductList = () => {
 
   return (
     <>
+      <Typography variant="h6" sx={{ textAlign: 'right', mb: 1 }}>
+        Total Items: {data.length},
+        Total Price: ${toComma(totalPrice)}
+      </Typography>
       <Grid2 container spacing={2} columns={{ xs: 4, sm: 8, md: 12 }}>
         {data.map(product =>
           <Grid2 key={product.productId} size={{ xs: 2, sm: 4, md: 4 }}>
