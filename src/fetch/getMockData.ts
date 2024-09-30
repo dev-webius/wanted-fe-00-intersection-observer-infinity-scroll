@@ -1,5 +1,4 @@
 import { MockData } from "../types/MockData";
-import { MockDataResponse } from "../types/MockDataResponse";
 
 const MOCK_DATA: MockData[] = [
   {
@@ -717,7 +716,7 @@ const PER_PAGE = 10;
 // 최초 pageNum 0으로 로드 후 1로 초기화 필요
 // 페이지는 1부터 시작함
 export const getMockData = (pageNum: number) => {
-  return new Promise<MockDataResponse>((resolve) => {
+  return new Promise<Response>((resolve) => {
     setTimeout(() => {
       const data: MockData[] = MOCK_DATA.slice(
         PER_PAGE * pageNum,
@@ -728,4 +727,9 @@ export const getMockData = (pageNum: number) => {
       resolve({ data, isEnd });
     }, 1500);
   });
+};
+
+type Response = {
+  data: MockData[];
+  isEnd: boolean;
 };
