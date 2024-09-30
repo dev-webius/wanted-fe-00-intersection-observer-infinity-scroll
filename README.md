@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# 원티드 프리온보딩 FE 사전과제 - 김예승
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+* `Intersection Observer`를 이용한 무한 스크롤 구현
+* 무한 스크롤 관련 라이브러리 사용 금지
+* 비동기 상태 관리 라이브러리 사용 금지 (ex: `tanstack-query`)
 
-## Available Scripts
+## 프로젝트 구성
 
-In the project directory, you can run:
+* React 18 버전
+* typescript-CRA 활용하여 프로젝트 생성
+* UI 구성을 위해 React MUI 라이브러리 사용
 
-### `npm start`
+## `src` 구조
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `components` - 재사용 컴포넌트
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* `Intersect`: `useIntersect` Hook과 HTMLElement에 ref를 연동 시켜주는 컴포넌트
+* `LoadingSuspense`: Loading UI를 표시하는 Suspense 컴포넌트
+* `ProductItem`: 상품 정보를 표시하는 컴포넌트
+* `ProductList`: 상품 정보를 불러오는 컴포넌트. 여기에 `Intersect`와 `LoadingSuspense` 연결
 
-### `npm test`
+### `fetch` - 데이터 페칭
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* `getMockData`: 상품 목록 페칭 함수 (6개씩 로드하도록 설정)
 
-### `npm run build`
+### `hooks` - Hook 함수
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* `useIntersect`: Intersection Observer에 observe/unobserve 처리와 이벤트 리스너 add/remove 처리
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `modules` - 모듈
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* `cacheResource`: 데이터 페칭 결과를 캐싱하기 위한 리소스 모듈
+* `numberFormatter`: number 타입을 위한 포매터 모듈
+* `throwSuspense`: 데이터 페칭 진행 경과를 Suspense에 던지기 위한 모듈, 리액트가 추적할 수 있도록 `cacheResource`와 함께 사용
 
-### `npm run eject`
+### `types` - 타입 정의
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* `MockData`: 상품 데이터
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `views` - 화면 구성
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* `App`: 기본 앱 화면
