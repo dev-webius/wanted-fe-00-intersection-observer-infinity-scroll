@@ -13,7 +13,10 @@ export default App;
 
 /*
 TODO 1:
-  - 페칭 후 다음 Intersect까지 도달하기 전에 추가 페칭 시도하는 오류 수정
+  - 최초 로드 시 발생하는 하기 오류 수정
+  Warning: Cannot update a component (`ProductList`) while rendering a different component (`Fetcher`).
+  To locate the bad setState() call inside `Fetcher`,
+  follow the stack trace as described in https://reactjs.org/link/setstate-in-render
 
 TODO 2:
   - README 적절히 작성하기
