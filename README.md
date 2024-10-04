@@ -1,5 +1,7 @@
 # 원티드 프리온보딩 FE 사전과제 - 김예승
 
+[데모](https://wanted-fe-00.webius.net/)
+
 * `Intersection Observer`를 이용한 무한 스크롤 구현
 * 무한 스크롤 관련 라이브러리 사용 금지
 * 비동기 상태 관리 라이브러리 사용 금지 (ex: `tanstack-query`)
