@@ -5,9 +5,11 @@ const Div = ({ handle }: Props) => {
   return <div ref={ref} />;
 };
 
-export default {
+const elements = {
   Div,
 };
+
+export default elements;
 
 type Props = {
   handle: () => void;
